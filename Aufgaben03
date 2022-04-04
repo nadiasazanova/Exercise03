@@ -1,0 +1,115 @@
+#1
+def count_vowels(text):
+    vowels =['A','E','I','O','U','Y','a','e','i','o','u','y']
+    count = 0
+    for x in range(len(vowels)):
+        for element in text:
+            if element in vowels[x]:
+                count = count + 1
+    if count == 0:
+            return 42
+    else:
+            return count
+input = "A new day or another day"
+output = count_vowels(input)
+print("count ", output)
+
+#2
+def hamming(text1, text2):
+    if (len(text1)) != (len(text2)):
+        return 0
+    else:
+        count = 0
+        for i in range(len(text1)):
+            if text1[i] != text2[i]:
+                count = count + 1
+        return count
+
+text1 = ("cat")
+text2 = ("kat")
+output = hamming(text1,text2)
+print(output)
+
+#3
+class Vehicle:
+    def __init__(self, color, fuel_type):
+        self.color = color
+        self.fuel_type = fuel_type
+
+
+class Car(Vehicle):
+    def __init__(self, color, fuel_type, doors):
+        super().__init__(color, fuel_type)
+        self.doors = doors
+
+    def __str__(self):
+        return "Color: {}, Fuel Type: {}, Doors: {}".format(self.color, self.fuel_type, self.doors)
+
+
+class Bus(Vehicle):
+    def __init__(self, color, fuel_type, passengers):
+        super().__init__(color, fuel_type)
+        self.passengers = passengers
+
+    def __str__(self):
+        return "Color: {}, Fuel Type: {}, Passengers: {}".format(self.color, self.fuel_type, self.passengers)
+
+
+a = Car("blue", "petrol", "wooden")
+print(a)
+b = Bus("red", "petrol", "with tickets")
+print(b)
+
+#4
+class Book:
+    def __init__(self, name, author):
+        self.name = name
+        self.author = author
+
+    def __str__(self):
+        return self.name + ", " + self.author
+
+book1 = Book("The Three Musketeers", "Alexandre Dumas")
+print(book1)
+
+#5
+class BookShelf():
+    def __init__(self):
+        self.book_shelf = []
+
+    def add_book_list(self, books):
+        for i in books:
+            if isinstance(i, str):
+               self.book_shelf.append(i)
+
+    def books_by_author(self, author):
+        author_books = []
+        for i in self.book_shelf:
+            if author in i:
+                author_books.append(i)
+        return author_books
+
+    def get_books(self):
+        return self.book_shelf
+
+    def clear_shelf(self):
+        self.book_shelf.clear()
+        return self.book_shelf
+
+book1 =["Henry Haggard.Montezuma's daughter", "Betty Smith.A tree grows in Brooklyn", "Ray Bradbury.The april witch"]
+book2 =["Arthur Conan Doyle.The Hound of the Baskervilles", "Victoria Holt.Mistress of Mellyn", "Jerome K. Jerome.Three Men in a Boat"]
+book3 = [1]
+k = BookShelf()
+k.add_book_list(book1)
+k.add_book_list(book2)
+k.add_book_list(book3)
+c = k.get_books()
+print(c)
+b = k.books_by_author("Arthur Conan Doyle")
+print(b)
+a = k.clear_shelf()
+print(a)
+
+
+
+
